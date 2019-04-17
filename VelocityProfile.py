@@ -30,7 +30,6 @@ def velocity_data(filename):
 
     return graph_data
 
-import sys
 if len(sys.argv) < 2:
     sys.exit('please pass a filename as first argument')
 graph_data = velocity_data(sys.argv[1])
