@@ -4,11 +4,7 @@ from itertools import cycle
 class VelocityProfileParser():
 
     def __init__(self, fname=None):
-        if not fname:
-            self.filename = 'Vx_ave_Pawan'
-        else:
-            self.filename = fname
-            
+        self.filename = fname
         self.first_step = 5000
         self.step_increment = 5000
         self.count = None
