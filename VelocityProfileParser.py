@@ -3,8 +3,8 @@ from itertools import cycle
 
 class VelocityProfileParser():
 
-	def __init__(self, fname=None):
-		self.filename = fname
+	def __init__(self, filename):
+		self.filename = filename
 		self.first_step = 5000
 		self.step_increment = 5000
 		self.count = None
@@ -70,5 +70,3 @@ class VelocityProfileParser():
 				for index, title in enumerate(titles):
 					self.step_details[title] = [data[index]]
 				self.all_steps_details[timestep].append(self.step_details)
-
-parser = VelocityProfileParser()

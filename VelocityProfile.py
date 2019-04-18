@@ -30,19 +30,21 @@ def velocity_data(filename):
 
 	return graph_data
 
-if len(sys.argv) < 2:
-	sys.exit('please pass a filename as first argument')
-graph_data = velocity_data(sys.argv[1])
+def main():
+	if len(sys.argv) < 2:
+		sys.exit('Please pass a file name as first argument')
+	else:
+		graph_data = velocity_data(sys.argv[1])
 
-new_file = open('R-Squared Value', 'w')
-new_file.write('Timestep \t R-Squared \t Slope \n')
-sorted_graph_data = sorted(graph_data, key=lambda x: x['time'])
+	with open('R-Squared Value', 'w') as f:
+		f.write('Timestep\tR-Squared\tSlope\n')
+		sorted_graph_data = sorted(graph_data, key=lambda x: x['time'])
 
-for data in sorted_graph_data:
-	a = data['time']
-	b = data['r2']
-	c = data['shear']
-	new_file.write(str(a) + '\t' + str(b) + '\t' + str(c) + '\n')
+		for data in sorted_graph_data:
+			a = data['time']
+			b = data['r2']
+			c = data['shear']
+			f.write(str(a) + '\t' + str(b) + '\t' + str(c) + '\n')
 
-new_file.close()
-
+if __name__ == '__main__':
+	main()
